@@ -6,20 +6,19 @@ public class ThePlay {
     private String author;
     private String title;
     private int partOf;
-    private Role roles;
+    private int roleNumber;
 
     public ThePlay() {
     }
 
-    public ThePlay(String author, String title, int partOf, Role roles) {
+    public ThePlay(String author, String title, int partOf, int roleNumber) {
         this.author = author;
         this.title = title;
         this.partOf = partOf;
-        this.roles = roles;
+        this.roleNumber = roleNumber;
     }
 
-    public ThePlay(String horváth_ádám, String szomszédok, int partOf, String[] roles) {
-    }
+
 
     public String getAuthor() {
         return author;
@@ -45,21 +44,13 @@ public class ThePlay {
         this.partOf = partOf;
     }
 
-    public Role getRoles() {
-        return roles;
+    public int getRoleNumber() {
+        return roleNumber;
     }
 
     public void setRoles(Role roles) {
-        this.roles = roles;
+        this.roleNumber = roleNumber;
     }
 
-    @Override
-    public String toString() {
-        return "ThePlay{" +
-                "author='" + author + '\'' +
-                ", title='" + title + '\'' +
-                ", partOf=" + partOf +
-                ", roles=" + roles +
-                '}';
-    }
+
 }

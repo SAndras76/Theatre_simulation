@@ -3,29 +3,29 @@ package hu.progmatic;
 import java.util.Arrays;
 
 public class TheTeam {
-    private String[] actor;
+    private String[] actorNames;
 
 
-    public TheTeam(String[] actor) {
-        this.actor = actor;
+    public TheTeam(String[] actorNames) {
+        this.actorNames = actorNames;
     }
 
 
 
-    public void setActor(String[] actor) {
-        this.actor = actor;
+    public void setActor(String[] actorNames) {
+        this.actorNames = actorNames;
     }
 
-    public String[] getActor() {
-        return actor;
+    public String[] getActorNames() {
+        return actorNames;
     }
 
-    @Override
+  /*  @Override
     public String toString() {
         return "TheTeam{" +
                 "actor=" + Arrays.toString(actor) +
                 '}';
-    }
+    }*/
 
     /*static String[] team1 = new String[]{"Brad Pitt", "Gyula", "Laár András",
             "Szászi Móni"};*/

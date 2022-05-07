@@ -2,61 +2,60 @@ package hu.progmatic;
 
 import java.util.Arrays;
 
-public class TheShow {
-
-    private ThePlay play;
+    public class TheShow {
     private TheTeam theTeam;
-
-    private String[] actor;
-    private String[] role;
+    private ThePlay play;
 
 
+    private String[] actorOnShow;
+   // private String[] role;
+    private String actorNames;
+        public TheShow(TheTeam theTeam, ThePlay play) {
+            this.theTeam = theTeam;
+            this.play = play;
 
-    public TheShow() {
-    }
-
-
-
-    public TheShow(ThePlay play, TheTeam theTeam, String[] actor, String[] role) {
-        this.play = play;
-        this.theTeam = theTeam;
-        this.actor = actor;
-        this.role = role;
-    }
-
-    public TheShow(ThePlay thePlay, String[] team1, String[] role) {
-    }
-
-    public String[] addRole(String[] actor, String[] role) {
-        String[] roleOfActors = new String[role.length];
-        for (int i = 0; i < roleOfActors.length; i++) {
-            roleOfActors[i] = role[i] + " " + getRandomActortoShow(actor);
         }
-        return roleOfActors;
+
+        public  void Rehersal() {
+
+            System.out.println("*******ON AIR -ON AIR -ON AIR********\n \n");
+            System.out.println(" *********************************\n");
+            System.out.println("Title: " + play.getTitle());
+            System.out.println("-----------------------------------\n");
+            System.out.println("Acting now: " );
+            for (String actorNames : actorOnShow) {
+                System.out.println(" ** \n" + actorNames);
+            }
+        }
+        private void addRole(){
+            int roleCounter = play.getRoleNumber();
+            int indexOfActor =0;
+
+            actorOnShow = new String[roleCounter];
+            while (roleCounter > 0) {
+            addOneRole(roleCounter - 1, theTeam.getActorNames()[indexOfActor]);
+            roleCounter--;
+
+            if (indexOfActor == theTeam.getActorNames().length - 1) {
+                indexOfActor = 0;
+            }else{
+                indexOfActor++;
+            }
+            }
+        }
+        private void addOneRole(int index, String actorName) {
+
+            actorOnShow[index] = actorName;
+        }
+
+
+
+    public TheTeam getTheTeam() {
+        return theTeam;
     }
-    public String getRandomActortoShow(String[] actors) {
-        int random = (int) (Math.random()*actors.length);
-        return actors[random];
-    }
-    public void Rehersal() {
 
-
-        System.out.println(" *********************************\n");
-                System.out.println("Title: " + play.getTitle());
-        System.out.println("-----------------------------------\n");
-        System.out.println("Acting now: " + Arrays.toString(addRole(actor, role)));
-        System.out.println("*******ON AIR -ON AIR -ON AIR********\n \n");
-
-    }
-
-    @Override
-    public String toString() {
-        return "TheShow{" +
-                "play=" + play +
-                ", theTeam=" + theTeam +
-                ", actor=" + Arrays.toString(actor) +
-                ", role=" + Arrays.toString(role) +
-                '}';
+    public void setTheTeam(TheTeam theTeam) {
+        this.theTeam = theTeam;
     }
 
     public ThePlay getPlay() {
@@ -67,29 +66,23 @@ public class TheShow {
         this.play = play;
     }
 
-    public hu.progmatic.TheTeam getTheTeam() {
-        return theTeam;
+    public String[] getActorOnShow() {
+        return actorOnShow;
     }
 
-    public void setTheTeam(hu.progmatic.TheTeam theTeam) {
-        this.theTeam = theTeam;
+    public void setActorOnShow(String[] actorOnShow) {
+        this.actorOnShow = actorOnShow;
     }
 
-    public String[] getActor() {
-        return actor;
-    }
 
-    public void setActor(String[] actor) {
-        this.actor = actor;
-    }
 
-    public String[] getRole() {
-        return role;
-    }
 
-    public void setRole(String[] role) {
-        this.role = role;
-    }
+
+
+
+
+
+
 }
 
 
